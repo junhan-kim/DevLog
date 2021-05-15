@@ -5,7 +5,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/pip3 /usr/bin/pip
 
 ENV DATABASE_URL = postgres://postgres:940416@localhost:5432/devlog
-ENV SECRET_KEY = '940416'
+ENV SECRET_KEY = 'secret'
 ENV BOILERPLATE_ENV dev
 
 COPY . /DevLog-api-server
@@ -16,4 +16,4 @@ RUN python manage.py db migrate --message 'initial database migration'
 RUN python manage.py db upgrade
 
 ENTRYPOINT [ "python" ]
-CMD ["manage.py", "test"]
+CMD ["manage.py", "run"]
