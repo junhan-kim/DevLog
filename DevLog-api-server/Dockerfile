@@ -11,5 +11,9 @@ ENV BOILERPLATE_ENV dev
 COPY . /DevLog-api-server
 WORKDIR /DevLog-api-server
 RUN pip3 install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["manage.py", "run"]
+RUN python manage.py db init
+RUN python manage.py db migrate --message 'initial database migration'
+RUN python manage.py db upgrade
+
+ENTRYPOINT [ "python" ]
+CMD ["manage.py", "test"]
