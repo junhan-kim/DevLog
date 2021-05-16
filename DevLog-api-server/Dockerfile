@@ -5,11 +5,13 @@ RUN apt-get install -y python3-psycopg2
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/pip3 /usr/bin/pip
 
-COPY . /DevLog-api-server
-WORKDIR /DevLog-api-server
 ENV DATABASE_URL postgresql://postgres:940416@db/devlog
 ENV SECRET_KEY secret
 ENV BOILERPLATE_ENV dev
+
+WORKDIR /DevLog-api-server
+COPY requirements.txt .
 RUN pip install -r requirements.txt
+COPY . .
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
