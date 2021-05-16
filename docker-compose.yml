@@ -27,7 +27,21 @@ services:
       - proxynet
     ports:
       - "5000:5000"
+    command: gunicorn -w 2 -b :5000 wsgi:server
     depends_on:
       - db
     links:
       - db:db
+
+  nginx:
+    container_name: nginx
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - proxynet
+    depends_on:
+      - backend
+    links:
+      - backend:backend
