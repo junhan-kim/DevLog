@@ -21,7 +21,7 @@ services:
 
   backend:
     container_name: devlog-api
-    build: .
+    build: ./DevLog-api-server
     restart: always
     networks:
       - proxynet
