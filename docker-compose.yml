@@ -20,7 +20,7 @@ services:
       - ./data/devlog_data:/var/lib/postgresql/data
 
   backend:
-    container_name: devlog-api
+    container_name: backend
     build: ./DevLog-api-server
     restart: always
     networks:
