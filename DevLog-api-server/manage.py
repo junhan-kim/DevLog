@@ -12,7 +12,7 @@ from app.main.model import blacklist
 
 
 # app setting
-app = create_app(os.getenv('BOILERPLATE_ENV') or 'dev')
+app = create_app(os.getenv('EXEC_ENV'))
 app.register_blueprint(blueprint)
 app.app_context().push()
 manager = Manager(app)
