@@ -7,7 +7,7 @@ RUN ln -s /usr/bin/pip3 /usr/bin/pip
 
 ENV DATABASE_URL postgresql://postgres:940416@db/devlog
 ENV SECRET_KEY secret
-ENV EXEC_ENV test
+ENV EXEC_ENV dev
 
 WORKDIR /DevLog-api-server
 COPY requirements.txt .
