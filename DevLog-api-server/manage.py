@@ -1,9 +1,11 @@
 import os
 import unittest
 import logging
+import json
 
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
+from flask_cors import CORS
 
 from app import blueprint
 from app.main import create_app, db
@@ -18,6 +20,7 @@ app.app_context().push()
 manager = Manager(app)
 migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
+CORS(app, resources={r'*': {'origins': json.loads(os.getenv('WHITE_LISTS'))}})
 
 # logger setting
 LOG_FORMATTER = logging.Formatter(
