@@ -33,7 +33,7 @@ class UserList(Resource):
 class User(Resource):
     @api.doc('get a user')
     @api.marshal_with(_user)
-    @admin_token_required
+    @token_required
     def get(self, public_id):
         """get a user given its identifier"""
         user = get_a_user(public_id)
