@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 networks:
   proxynet:
     driver: bridge
@@ -7,12 +7,12 @@ services:
   db:
     container_name: db
     image: postgres:latest
-    restart: always 
+    restart: always
     networks:
       - proxynet
-    ports: 
+    ports:
       - "5432:5432"
-    environment: 
+    environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=940416
       - POSTGRES_DB=devlog
@@ -45,3 +45,13 @@ services:
       - backend
     links:
       - backend:backend
+
+  frontend:
+    container_name: frontend
+    build: ./DevLog
+    volumes:
+      - "/node_modules:/node_modules"
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
