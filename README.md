@@ -1,7 +1,7 @@
-# DevLog-API-Server
+# DevLog
 
 This repository is the API server of `DevLog`. <br>
-Devlog is a compound word of dev and log, meaning my development blog.
+Devlog is a compound word of `dev` and `log`, meaning the development blog.
 
 ## Installation
 
