@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Login from "./auth/Login";
 
 const Home = (props) => {
   const [state, setState] = useState("");
@@ -15,7 +16,7 @@ const Home = (props) => {
 
   return (
     <div>
-      Home
+      <Login></Login>
       <p>{state}</p>
     </div>
   );
